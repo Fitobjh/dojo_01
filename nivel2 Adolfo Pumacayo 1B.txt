@@ -1,0 +1,70 @@
+/*
+Nivel 2 - Adolfo Pumacayo 1B
+
+2 - LA SEGUNDA ENTREGA AGREGA LO SIGUIENTE EN UN NUEVO 
+PROYECTO, 
+8-  Durante el amarillo: Tiene que sonar 1 vez por segundo en
+un tono SUAVE. 
+9- Al cambiar de verde a amarillo debe titilar 3 veces el
+verde antes de pasar al amarillo
+10- Al cambiar de amarillo a rojo se debe titilar 3 veces el
+amarillo
+11- Al cambiar de rojo a Amarillo se debe titilar 3 veces el
+rojo
+12- Al cambiar de amarillo a verde se debe titilar 3 veces el
+amarillo.
+*/
+#define LEDVERDE 13
+#define LEDAMARILLO 12
+#define LEDROJO 11
+#define BUZZER 10
+  
+void setup(){
+  pinMode(LEDVERDE, OUTPUT);
+  pinMode(LEDAMARILLO, OUTPUT);
+  pinMode(LEDROJO, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+
+}
+
+void loop(){
+  encender(LEDVERDE, 833, 3); // 5000 / 3 (titilar) = 1.6666 / 2 (estados del led)= 833
+  encender(LEDAMARILLO, 500, 3);
+  encender(LEDROJO, 833, 3);
+  encender(LEDAMARILLO, 500, 3);
+}
+
+void encender(int LED, int tiempo, int titilar){
+  if(LED == LEDROJO){
+    for(int i = 0; i < titilar; i++){
+    	digitalWrite(LED, HIGH);
+      	delay(tiempo);
+    	encender_buzzer(125, 1080, 10);
+    	digitalWrite(LED, LOW);
+      	delay(tiempo);
+    }
+  } 
+  else if(LED == LEDAMARILLO){
+    for(int i = 0; i < titilar; i++){
+    	digitalWrite(LED, HIGH);
+      	delay(tiempo);
+        encender_buzzer(250, 240, 3);
+    	digitalWrite(LED, LOW);
+      	delay(tiempo);
+    }
+  }
+  else{
+    for(int i = 0; i < titilar; i++){
+        digitalWrite(LED, HIGH);
+    	delay(tiempo);
+    	digitalWrite(LED, LOW);
+    	delay(tiempo);
+    }
+  }
+}
+void encender_buzzer(int tiempo, int tono, int repes){
+    tone(BUZZER, tono);
+    delay(tiempo);
+    noTone(BUZZER);
+    delay(tiempo);
+}
