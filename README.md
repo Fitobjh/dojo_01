@@ -1,3 +1,3 @@
 # DOJO 01
-https://github.com/Fitobjh/dojo_01/blob/main/Captura%20de%20pantalla%202023-05-02%20092735.png
+[![Captura-de-pantalla-2023-05-02-092735.png](https://i.postimg.cc/C5G3mG75/Captura-de-pantalla-2023-05-02-092735.png)](https://postimg.cc/y3NpNSwC)
 Semaforo en arduinos--SPD  Adolfo Pumacayo 1B 
